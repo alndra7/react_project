@@ -1,7 +1,8 @@
 .wordCard {
     width: 40vw;
     height: 30vw;
-    background-color: rgb(230, 140, 24);
+    border: 1px solid grey;
+    border-radius: 3vw;
 
     display: flex;
     justify-content: center;

@@ -1,19 +1,17 @@
 .header {
-    background-color: aqua;
+    background-color: rgb(206, 230, 230);
     display: flex;
-    //flex-direction: row;
     justify-content: space-around;
     align-items: center;
     width: 100vw;
     height: 7vw;
 
     h1 {
-        color: red;
+        color: rgb(92, 80, 80);
         height: fit-content;
     }
 
     &__nav {
-        border: 1px solid red;
         width: 40vw;
         display: flex;
         align-items: center;

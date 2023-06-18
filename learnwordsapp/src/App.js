@@ -1,6 +1,7 @@
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import WordCard from './components/cards/WordCard';
+import WordsTable from './components/layouts/WordsTable';
 
 import './App.css';
 
@@ -9,7 +10,8 @@ function App() {
     <>
       <Header></Header>
       <main className='content'>
-        <WordCard text={'the word'}></WordCard>
+        {/* <WordCard text={'the word'}></WordCard> */}
+        <WordsTable></WordsTable>
         </main>
       <Footer></Footer>
     </>

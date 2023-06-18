@@ -1,5 +1,5 @@
 .content {
-    height: 34vw;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
