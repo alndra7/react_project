@@ -1,0 +1,22 @@
+.header {
+    background-color: aqua;
+    display: flex;
+    //flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 7vw;
+
+    h1 {
+        color: red;
+        height: fit-content;
+    }
+
+    &__nav {
+        border: 1px solid red;
+        width: 40vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}

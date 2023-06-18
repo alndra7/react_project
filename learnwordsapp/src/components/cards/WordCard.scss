@@ -1,0 +1,15 @@
+.wordCard {
+    width: 40vw;
+    height: 30vw;
+    background-color: rgb(230, 140, 24);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__text {
+        background-color: red;
+        //width: 50%;
+        //height: 50%;
+    }
+}
