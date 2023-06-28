@@ -1,5 +1,8 @@
+@import './../../assets/styles/variables.scss';
+
 .header {
-    background-color: rgb(206, 230, 230);
+    background-color: $light-blue;
+    @include font (2vw, 400);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -7,7 +10,6 @@
     height: 7vw;
 
     h1 {
-        color: rgb(92, 80, 80);
         height: fit-content;
     }
 

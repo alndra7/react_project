@@ -1,0 +1,43 @@
+$default-font: "Montserrat", sans-serif;
+$figure-font: "Inter", sans-serif;
+
+$light-blue: rgb(206, 230, 230);
+$light-grey: rgb(92, 80, 80);
+
+
+$button-color: #F7C78E;
+$figure-color: #FF7C02;
+$text-color: rgba(0, 0, 0, 0.7);
+
+$desktop: 1280px;
+$default-desktop: 1440px;
+$large-desktop: 1920px;
+
+@mixin font ($font-size, $font-weight) {
+    font-weight: $font-weight;
+    font-size: $font-size;
+    font-family: $default-font;
+    color: $light-grey;
+}
+
+@mixin button ($width, $height) {
+    width: $width;
+    height: $height;
+
+    border: 2px solid $light-grey;
+    border-radius: 5vw;
+
+    cursor: pointer;
+
+    transition: transform .2s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+@mixin figure ($font-weight, $font-size) {
+    font-weight: $font-weight;
+    font-size: $font-size;
+    font-family: $figure-font;
+}

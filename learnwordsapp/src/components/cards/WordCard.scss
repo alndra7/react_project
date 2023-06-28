@@ -1,16 +1,29 @@
+@import './../../assets/styles/variables.scss';
+
 .wordCard {
     width: 40vw;
     height: 30vw;
-    border: 1px solid grey;
+    border: 1px solid $light-grey;
     border-radius: 3vw;
+    @include font (2vw, 400);
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+
 
     &__text {
         background-color: red;
         //width: 50%;
         //height: 50%;
+    }
+
+    &__btn {
+        @include button (15vw, 5vw);
+        @include font (1vw, 600);
+        background-color: rgb(235, 97, 43);
+        color: black;
+        border: none;
     }
 }

@@ -1,5 +1,5 @@
 import DataTable from 'react-data-table-component';
-import WordsData from '../../WordsData.json';
+import WordsData from '../../wordsData.json';
 
 const data = JSON.parse(JSON.stringify(WordsData));
 

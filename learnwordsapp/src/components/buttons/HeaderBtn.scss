@@ -1,6 +1,7 @@
+@import './../../assets/styles/variables.scss';
+
 .headerBtn {
     background-color: transparent;
-    border-radius: 5vw;
-    width: 15vw;
-    height: 5vw;
+    @include button (15vw, 5vw);
+    @include font (1vw, 600)
 }
