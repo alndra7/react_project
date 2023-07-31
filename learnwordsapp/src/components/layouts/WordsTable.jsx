@@ -1,40 +1,39 @@
-import DataTable from 'react-data-table-component';
+import Word from './Word';
 import WordsData from '../../wordsData.json';
 
-const data = JSON.parse(JSON.stringify(WordsData));
+import "./WordsTable.scss";
 
-const columns = [
-    {
-        name: 'Слово',
-        selector: row => row.english,
-        sortable: true,
-    },
-    {
-        name: 'Перевод',
-        selector: row => row.russian,
-        sortable: true,
-    },
-    {
-        name: 'Транскрипция',
-        selector: row => row.transcription,
-        sortable: true,
-    },
-    {
-        name: 'Уровень',
-        selector: row => row.tags,
-        sortable: true,
-    },
-];
+const data = JSON.parse(JSON.stringify(WordsData));
 
 
 
 function WordsTable() {
     return (
-        <DataTable
-            columns={columns}
-            data={data}
-        />
+        <div className='tableContainer'>
+            <table>
+                <thead >
+                    <tr>
+                        <th>№</th>
+                        <th>Слово</th>
+                        <th>Транскрипция</th>
+                        {/* <th>Topic</th> */}
+                        <th>Перевод</th>
+                        <th>Редактировать</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((word, i) => (
+                        <Word
+                            key={i}
+                            count={i + 1}
+                            {...word}
+                        />
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 };
+
 
 export default WordsTable;

@@ -6,6 +6,11 @@ import './WordCard.scss';
 function WordCard(props) {
 
     const [pressed, setPressed] = useState();
+    //const [count, setCount] = useState(0);
+
+    // const handleClick = () => {
+    //     setCount(count + 1);
+    // }
 
     const handleChange = () => {
         setPressed(!pressed);

@@ -6,12 +6,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100vw;
     height: 7vw;
 
-    h1 {
+    &__logo {
+        text-decoration: none;
         height: fit-content;
+        color: $light-grey;
     }
+
 
     &__nav {
         width: 40vw;
@@ -19,4 +21,8 @@
         align-items: center;
         justify-content: space-around;
     }
+}
+
+.link {
+    text-decoration: none;
 }

@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+
+import {
+    Link,
+} from "react-router-dom";
 
 import HeaderBtn from '../buttons/HeaderBtn';
 
@@ -11,10 +15,18 @@ function Header() {
 
     return (
         <header className='header'>
-            <h1>LearnWords</h1>
+            <Link to="/" className='header__logo'>
+                <h1>LearnWords</h1>
+            </Link>
             <nav className='header__nav'>
-                <HeaderBtn text={'Режим тренировки'}></HeaderBtn>
-                <HeaderBtn text={'Список слов'}></HeaderBtn>
+
+                <Link to="/training">
+                    <HeaderBtn text={'Режим тренировки'}></HeaderBtn>
+                </Link>
+
+                <Link to="/">
+                    <HeaderBtn text={'Список слов'}></HeaderBtn>
+                </Link>
             </nav>
         </header>
     );

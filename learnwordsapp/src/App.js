@@ -1,38 +1,41 @@
-//import React, { useState } from 'react';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
-import WordCard from './components/cards/WordCard';
+import SetOfCards from './components/cards/SetOfCards';
 import WordsTable from './components/layouts/WordsTable';
+import NoMatch from './components/layouts/NoMatch';
 
-import WordsData from './wordsData.json';
 
 import './App.css';
 
-const data = JSON.parse(JSON.stringify(WordsData));
+
+
 
 function App() {
-  
+
+
   return (
-    <>
-      <Header></Header>
+    <Router>
+    <div className='wrapper'>
+      <Header className='header'></Header>
+
       <main className='content'>
-      
-        {/* {
-          data.map((word) =>
-              <WordCard text={word.text}
-                  key={word.id}
-              ></WordCard>
-
-          )
-        } */}
-        <WordCard rus={'rus'} eng={'eng'} transc={'transcription'}></WordCard>
-
-        
-        {/* <WordsTable></WordsTable> */}
+      <Routes>
+          <Route path="/training" element={<SetOfCards/>} />
+          <Route path="/" element={<WordsTable />} />
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
         </main>
-      <Footer></Footer>
-    </>
+
+      <Footer className="footer"></Footer>
+    </div>
+    </Router>
   );
 }
 

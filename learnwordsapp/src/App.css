@@ -1,6 +1,19 @@
+.wrapper {
+    min-height: 100vh;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .content {
-    height: fit-content;
+    /* height: fit-content; */
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.header {
+    position: sticky;
+    top: 0px;
 }
