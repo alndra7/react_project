@@ -6,11 +6,6 @@ import './WordCard.scss';
 function WordCard(props) {
 
     const [pressed, setPressed] = useState();
-    //const [count, setCount] = useState(0);
-
-    // const handleClick = () => {
-    //     setCount(count + 1);
-    // }
 
     const handleChange = () => {
         setPressed(!pressed);
@@ -21,8 +16,8 @@ function WordCard(props) {
             <div className='wordCard__text'>{props.eng}</div>
             <div className='wordCard__transcription'>{props.transc}</div>
             <div className='wordCard__translation'>{pressed && `${props.rus}`}</div>
-            <button className='wordCard__btn' onClick={handleChange}>Показать перевод</button>
-        </div>
+            <button className='wordCard__btn' onClick={() => { props.clb(); handleChange(); }} >Показать перевод</button>
+        </div >
     );
 }
 

@@ -11,11 +11,7 @@ import SetOfCards from './components/cards/SetOfCards';
 import WordsTable from './components/layouts/WordsTable';
 import NoMatch from './components/layouts/NoMatch';
 
-
 import './App.css';
-
-
-
 
 function App() {
 

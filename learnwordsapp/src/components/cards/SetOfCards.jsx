@@ -14,6 +14,7 @@ const data = JSON.parse(JSON.stringify(WordsData));
 function SetOfCards() {
 
     const [pressed, setPressed] = useState(0);
+    const [translated, setTranslated] = useState(1);
 
     const handleClickNext = () => {
         setPressed(pressed === data.length - 1 ? 0 : pressed + 1);
@@ -23,10 +24,14 @@ function SetOfCards() {
         setPressed(pressed < 1 ? data.length - 1 : pressed - 1);
     };
 
+    const handleClickTranslate = () => {
+        setTranslated(translated + 1);
+        console.log(translated);
+    };
+
     const word = data[pressed];
 
     return (
-        // < className='cardsContainer'>
         <>
             <TrainingBtn clb={handleClickPrev} text={'← вернуться'}></TrainingBtn>
 
@@ -35,9 +40,10 @@ function SetOfCards() {
                 rus={word.russian}
                 eng={word.english}
                 transc={word.transcription}
+                clb={handleClickTranslate}
             ></WordCard>
 
-            <TrainingBtn clb={handleClickPrev} text={'далее →'}></TrainingBtn>
+            <TrainingBtn clb={handleClickNext} text={'далее →'}></TrainingBtn>
         </>
     );
 };
