@@ -12,18 +12,26 @@
     justify-content: space-around;
     align-items: center;
 
-
-    &__text {
-        //background-color: red;
-        //width: 50%;
-        //height: 50%;
-    }
-
     &__btn {
         @include button (15vw, 5vw);
-        @include font (1vw, 600);
+        @include font (1.2vw, 600);
         background-color: rgb(235, 97, 43);
         color: black;
         border: none;
+
+        &:hover {
+            transform: scale(1.05);
+            background-color: white;
+            border: 2px solid rgb(235, 97, 43);
+            color: $light-grey
+        }
+    }
+
+    &__btn-on-load {
+        @include button (15vw, 5vw);
+        @include font (1.2vw, 600);
+        transform: scale(1.05);
+        background-color: white;
+        border: 2px solid rgb(235, 97, 43);
     }
 }
