@@ -15,8 +15,8 @@ function WordCard(props) {
         <div className='wordCard'>
             <div className='wordCard__text'>{props.eng}</div>
             <div className='wordCard__transcription'>{props.transc}</div>
-            <div className='wordCard__translation'>{pressed && `${props.rus}`}</div>
-            <button className={props.className} onClick={() => { props.clb(); handleChange(); }} >Показать перевод</button>
+            {pressed && <div className='wordCard__translation'>{props.rus}</div>}
+            {!pressed && <button className={props.className} onClick={() => { props.clb(); handleChange(); }} >Показать перевод</button>}
         </div >
     );
 }

@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 
+import editIcon from './../../assets/icons/pen-solid.svg'
+import deleteIcon from './../../assets/icons/trash-solid.svg'
+import saveIcon from './../../assets/icons/check-solid.svg'
+import cancelIcon from './../../assets/icons/xmark-solid.svg'
+
 function Word(props) {
 
     const [pressed, setPressed] = useState();
+    let [english, setEnglish] = useState(props.english);
+    let [transcription, setTranscription] = useState(props.transcription);
+    let [russian, setRussian] = useState(props.russian);
 
     const deleteWord = () => {
         console.log(props.id);
@@ -13,45 +21,65 @@ function Word(props) {
         console.log(props.id);
     };
 
+    const handleEditEnglish = (e) => {
+        setEnglish(english = e.target.value);
+    };
+
+    const handleEditTranscription = (e) => {
+        setTranscription(transcription = e.target.value);
+    };
+
+    const handleEditRussian = (e) => {
+        setRussian(russian = e.target.value);
+    };
+
     return (
         <>
-            {/* <th className={stylesTable.wordId}>{id}</th>
-            <th className={stylesTable.english}>{english}</th>
-            <th className={stylesTable.transcription}>{transcription}</th>
-            <th className={stylesTable.topic}>{tags}</th>
-            <th className={stylesTable.translation}>{russian}</th> */}
 
             <tr id={props.id}>
+
                 <th >{props.count}</th>
-                <th >{props.english}</th>
-                <th >{props.transcription}</th>
-                {/* <th >{props.tags}</th> */}
-                <th >{props.russian}</th>
+                {!pressed ?
+                    <>
+                        <th >{props.english}</th>
+                        <th >{props.transcription}</th>
+                        <th >{props.russian}</th>
+                    </>
+                    :
+                    <>
+                        <th > <input type="text" value={english} name={"english"} onChange={handleEditEnglish} /> </th>
+                        <th > <input type="text" value={transcription} name={"transcription"} onChange={handleEditTranscription} /> </th>
+                        <th > <input type="text" value={russian} name={"russian"} onChange={handleEditRussian} /> </th>
+                    </>
+                }
+
 
                 <th className="edit-buttons">
                     <div className="table-buttons">
-                        {pressed && <button onClick={handleChange}>Сохранить</button>}
-                        {pressed && <button onClick={handleChange}>Отменить</button>}
+                        {pressed && <img onClick={handleChange}
+                            src={saveIcon}
+                            alt="Кнопка сохранить"
+                            title="Сохранить"
+                        />}
+                        {pressed && <img onClick={handleChange}
+                            src={cancelIcon}
+                            alt="Кнопка отменить"
+                            title="Отменить"
+                        />}
 
                         {!pressed &&
-                            <button onClick={handleChange}>
-                                {/* <img
-                            src={editIcon}
-                            className="edit icon"
-                            alt="Edit"
-                            title="Edit word"
-                        /> */}
-                                Редактировать
-                            </button>}  {" "}
-                        <button onClick={() => deleteWord(props.id)}>
-                            {/* <img
+                            <img onClick={handleChange}
+                                src={editIcon}
+                                alt="Кнопка редактировать"
+                                title="Редактировать"
+                            />
+                        }
+
+                        <img onClick={() => deleteWord(props.id)}
                             src={deleteIcon}
-                            className="delete icon"
-                            alt="Delete"
-                            title="Delete word"
-                        /> */}
-                            Удалить
-                        </button>
+                            alt="Кнопка удалить"
+                            title="Удалить"
+                        />
                     </div>
                 </th>
             </tr>
@@ -60,5 +88,3 @@ function Word(props) {
 };
 
 export default Word;
-
-//function 

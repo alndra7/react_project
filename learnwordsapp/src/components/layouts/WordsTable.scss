@@ -3,14 +3,53 @@
 table {
     border-collapse: collapse;
     letter-spacing: 0.3vw;
-    @include font (1.5vw, 800);
+    @include font (1.2vw, 800);
     margin-top: 1vw;
+
+    // &__word-column {
+    //     height: 3.5vw;
+    //     width: 15vw;
+    //     border-bottom: 2px solid rgb(200, 200, 200);
+    //     text-align: left;
+    //     padding-left: 2.3vw;
+    //     padding-right: 2.3vw;
+    // }
+
+    // &__number-column {
+    //     width: 0.5vw;
+    //     background-color: red;
+    // }
+
+    // .table__edit-column {
+    //     width: 15vw;
+    //     //background-color: red;
+    // }
 
     th {
         height: 3.5vw;
+        //width: 10vw;
         border-bottom: 2px solid rgb(200, 200, 200);
         text-align: left;
         padding-left: 2.3vw;
         padding-right: 2.3vw;
+    }
+
+
+
+    input {
+        height: 2.3vw;
+        //width: min-content;
+        border: 2px solid rgb(200, 200, 200);
+        outline: none;
+        letter-spacing: 0.3vw;
+        @include font (1.2vw, 800);
+
+
+    }
+
+    img {
+        width: 1.2vw;
+        cursor: pointer;
+        margin: 0 0.5vw 0 0.5vw;
     }
 }

@@ -10,15 +10,20 @@ const data = JSON.parse(JSON.stringify(WordsData));
 function WordsTable() {
     return (
         <div className='tableContainer'>
-            <table>
+            <table className='table'>
                 <thead >
                     <tr>
+                        {/* <th className='table__number-column'>№</th>
+                        <th className='table__word-column'>Слово</th>
+                        <th className='table__word-column'>Транскрипция</th>
+                        <th className='table__word-column'>Перевод</th>
+                        <th className='table__edit-column'></th> */}
+
                         <th>№</th>
                         <th>Слово</th>
-                        <th>Транскрипция</th>
-                        {/* <th>Topic</th> */}
+                        <th >Транскрипция</th>
                         <th>Перевод</th>
-                        <th>Редактировать</th>
+                        <th className='table__edit-column'></th>
                     </tr>
                 </thead>
                 <tbody>
