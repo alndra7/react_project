@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/react_project/static/css/main.08f94852.css",
-    "main.js": "/react_project/static/js/main.2ae8d1af.js",
+    "main.css": "/react_project/static/css/main.8287694d.css",
+    "main.js": "/react_project/static/js/main.54277870.js",
     "static/js/787.06f53b04.chunk.js": "/react_project/static/js/787.06f53b04.chunk.js",
     "index.html": "/react_project/index.html",
     "static/media/xmark-solid.svg": "/react_project/static/media/xmark-solid.57487f70e7af4b334686ceb922d96407.svg",
+    "static/media/xmark-red.svg": "/react_project/static/media/xmark-red.06ecd42b78c19b4d0eec382f130190a3.svg",
     "static/media/pen-solid.svg": "/react_project/static/media/pen-solid.0baacde44f2fdd07f6c66b2cc1c5af1a.svg",
     "static/media/trash-solid.svg": "/react_project/static/media/trash-solid.2ecfc264b0a9df8cf83e62ce75ce29f2.svg",
     "static/media/check-solid.svg": "/react_project/static/media/check-solid.75f97268c83b77f4cda1d31a8f68bc4f.svg",
-    "main.08f94852.css.map": "/react_project/static/css/main.08f94852.css.map",
-    "main.2ae8d1af.js.map": "/react_project/static/js/main.2ae8d1af.js.map",
+    "main.8287694d.css.map": "/react_project/static/css/main.8287694d.css.map",
+    "main.54277870.js.map": "/react_project/static/js/main.54277870.js.map",
     "787.06f53b04.chunk.js.map": "/react_project/static/js/787.06f53b04.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.08f94852.css",
-    "static/js/main.2ae8d1af.js"
+    "static/css/main.8287694d.css",
+    "static/js/main.54277870.js"
   ]
 }
