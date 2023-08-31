@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import WordCard from "./WordCard";
 import TrainingBtn from "../buttons/TrainingBtn";
-
-import WordsData from "./../../wordsData.json";
+import Loader from '../utility/Loader';
+import WordsContext from '../utility/WordsContext';
+import LoadError from '../layouts/LoadError';
 
 import "./SetOfCards.scss";
 
 
-const data = JSON.parse(JSON.stringify(WordsData));
-
 
 function SetOfCards() {
+
+    const { words, loading, error } = useContext(WordsContext);
 
     const [pressed, setPressed] = useState(0);
     const [translated, setTranslated] = useState(1);
     let [className, setClassName] = useState('wordCard__btn');
+
+
+    const word = words[pressed];
 
     useEffect(() => {
         const timer = setTimeout(() => setFocusOnBtn(), 500);
@@ -23,11 +27,11 @@ function SetOfCards() {
     }, [pressed,]);
 
     const handleClickNext = () => {
-        setPressed(pressed === data.length - 1 ? 0 : pressed + 1);
+        setPressed(pressed === words.length - 1 ? 0 : pressed + 1);
     };
 
     const handleClickPrev = () => {
-        setPressed(pressed < 1 ? data.length - 1 : pressed - 1);
+        setPressed(pressed < 1 ? words.length - 1 : pressed - 1);
     };
 
     const handleClickTranslate = () => {
@@ -35,7 +39,6 @@ function SetOfCards() {
         console.log(translated);
     };
 
-    const word = data[pressed];
 
     const setFocusOnBtn = () => {
         setClassName(className = 'wordCard__btn-on-load');
@@ -44,20 +47,24 @@ function SetOfCards() {
     }
 
     return (
-        <>
-            <TrainingBtn clb={handleClickPrev} text={'← вернуться'}></TrainingBtn>
+        <>  {error && <LoadError></LoadError>}
+            {!loading ? <Loader></Loader> :
 
-            <WordCard
+                <>
+                    <TrainingBtn clb={handleClickPrev} className={'trainingBtn'} text={'← вернуться'}></TrainingBtn>
 
-                key={word.id}
-                rus={word.russian}
-                eng={word.english}
-                transc={word.transcription}
-                clb={handleClickTranslate}
-                className={className}
-            ></WordCard>
+                    < WordCard
+                        key={word.id}
+                        rus={word.russian}
+                        eng={word.english}
+                        transc={word.transcription}
+                        clb={handleClickTranslate}
+                        className={className}
+                    ></WordCard >
 
-            <TrainingBtn clb={handleClickNext} text={'далее →'}></TrainingBtn>
+                    <TrainingBtn className={'trainingBtn'} clb={handleClickNext} text={'далее →'}></TrainingBtn>
+                </>
+            }
         </>
     );
 };

@@ -1,0 +1,19 @@
+@import './../../assets/styles/variables.scss';
+
+.error {
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    &__img {
+        width: 15vw;
+    }
+
+    &__text {
+        @include font(5vw, 400)
+    }
+}

@@ -1,0 +1,32 @@
+@import './../../assets/styles/variables.scss';
+
+
+input {
+    letter-spacing: 0.3vw;
+    @include font (1.2vw, 400);
+    border: 2px solid rgb(200, 200, 200);
+    margin: 0.5vw;
+    outline: none;
+}
+
+.form {
+    display: flex;
+    width: 40vw;
+    flex-direction: column;
+    position: fixed;
+    top: 8vw;
+    right: 30vw;
+    background-color: $figure-color;
+    //align-items: center;
+
+    &__button {
+        background-color: transparent;
+        @include button (8vw, 3vw);
+        @include font (1.2vw, 800);
+        //text-align: center;
+        //border-left: 2px solid rgb(200, 200, 200);
+        border: none;
+        letter-spacing: 0.3vw;
+    }
+
+}

@@ -5,4 +5,15 @@
     @include button (20vw, 10vw);
     @include font (1.3vw, 400);
     border: none;
+
+    &__add-mode {
+        background-color: transparent;
+        @include button (8vw, 3vw);
+        @include font (1.2vw, 800);
+        //text-align: center;
+        //border-left: 2px solid rgb(200, 200, 200);
+        border: none;
+        letter-spacing: 0.3vw;
+
+    }
 }

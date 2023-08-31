@@ -3,7 +3,7 @@ import "./TrainingBtn.scss"
 function TrainingBtn(props) {
 
     return (
-        <button className="trainingBtn" onClick={() => props.clb()}>{props.text}</button>
+        <button className={props.className} onClick={() => props.clb()}>{props.text}</button>
     )
 }
 
