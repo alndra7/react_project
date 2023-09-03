@@ -4,39 +4,25 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import { Provider } from 'mobx-react';
 
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import SetOfCards from './components/cards/SetOfCards';
 import WordsTable from './components/layouts/WordsTable';
 import NoMatch from './components/layouts/NoMatch';
-import WordsContext from './components/utility/WordsContext.jsx';
-import Loader from './components/utility/Loader';
+import WordsStore from './components/stores/WordsStore';
 
 import './App.css';
+
+const wordsStore = new WordsStore();
 
 
 function App() {
 
-  const [loading, setLoading] = useState();
-  let [words, setWords] = useState([]);
-  const [error, setError] = useState(false);
-
-  function getAPI() {
-    fetch('https://itgirlschool.justmakeit.ru/api/words')
-            .then((response) => response.json())
-            .then((response) => setWords(words = response))
-            .then(() => setLoading(!loading))
-            .catch(error => setError(error))
-  }
-
-useEffect(() => {
-  getAPI()
-}, []);
-
-
   return (
-    <WordsContext.Provider value={{getAPI, words, loading, error}}>
+  
+     <Provider {... wordsStore}>
     <div className='wrapper'>
     <Router>
       <Header className='header'></Header>
@@ -52,7 +38,7 @@ useEffect(() => {
       <Footer className="footer"></Footer>
       </Router>
     </div>
-    </WordsContext.Provider>
+     </Provider> 
   );
 }
 

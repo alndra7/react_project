@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import WordCard from "./WordCard";
 import TrainingBtn from "../buttons/TrainingBtn";
 import Loader from '../utility/Loader';
-import WordsContext from '../utility/WordsContext';
 import LoadError from '../layouts/LoadError';
 
 import "./SetOfCards.scss";
@@ -12,11 +11,26 @@ import "./SetOfCards.scss";
 
 function SetOfCards() {
 
-    const { words, loading, error } = useContext(WordsContext);
-
     const [pressed, setPressed] = useState(0);
     const [translated, setTranslated] = useState(1);
     let [className, setClassName] = useState('wordCard__btn');
+
+    //old
+    const [loading, setLoading] = useState();
+    let [words, setWords] = useState([]);
+    const [error, setError] = useState(false);
+
+    function getAPI() {
+        fetch('https://itgirlschool.justmakeit.ru/api/words')
+            .then((response) => response.json())
+            .then((response) => setWords(words = response))
+            .then(() => setLoading(!loading))
+            .catch(error => setError(error))
+    }
+
+    useEffect(() => {
+        getAPI()
+    }, []);
 
 
     const word = words[pressed];

@@ -1,4 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
+
+import { inject, observer } from 'mobx-react';
 
 
 import LoadError from './LoadError';
@@ -6,18 +8,32 @@ import Loader from '../utility/Loader';
 import Word from './Word';
 import TrainingBtn from '../buttons/TrainingBtn';
 import AddNewWordForm from '../utility/AddNewWordForm';
-import WordsContext from '../utility/WordsContext';
 
 import "./WordsTable.scss";
 
 
 
+function WordsTable({ test }) {
 
-function WordsTable() {
-
-    const { words, loading, error } = useContext(WordsContext);
     const [pressed, setPressed] = useState();
 
+    //old
+    const [loading, setLoading] = useState();
+    let [words, setWords] = useState([]);
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        fetch('https://itgirlschool.justmakeit.ru/api/words')
+            .then((response) => response.json())
+            .then((response) => setWords(words = response))
+            .then(() => setLoading(!loading))
+            .catch(error => setError(error))
+    }, []);
+    //
+
+    useEffect(() => {
+        console.log(test);
+    }, []);
 
     const handleClick = () => {
         setPressed(!pressed);
@@ -59,5 +75,12 @@ function WordsTable() {
     );
 };
 
-export default WordsTable;
+// export default WordsTable;
+
+export default inject(({ wordsStore }) => {
+    const { test } = wordsStore;
+    return (
+        test
+    );
+})(observer(WordsTable));
 

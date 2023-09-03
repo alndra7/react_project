@@ -1,6 +1,4 @@
-import React, { useState, useContext } from 'react';
-
-import WordsContext from '../utility/WordsContext';
+import React, { useState } from 'react';
 
 import editIcon from './../../assets/icons/pen-solid.svg'
 import deleteIcon from './../../assets/icons/trash-solid.svg'
@@ -8,8 +6,6 @@ import saveIcon from './../../assets/icons/check-solid.svg'
 import cancelIcon from './../../assets/icons/xmark-solid.svg'
 
 function Word(props) {
-
-    const { getAPI } = useContext(WordsContext);
 
     const [pressed, setPressed] = useState();
     let [warning, setWarning] = useState("");
